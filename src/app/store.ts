@@ -1,7 +1,9 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-
+import loginReducer from '../features/User/User-slice';
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    userLog: loginReducer,
+  },
 });
 
 export type AppDispatch = typeof store.dispatch;
