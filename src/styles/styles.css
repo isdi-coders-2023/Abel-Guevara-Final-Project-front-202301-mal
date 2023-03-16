@@ -1,0 +1,17 @@
+:root {
+  --background-image-register: '../../public/assets/register.jpg';
+  /*FONT-FAMILY*/
+  --font-family-inter-regular: 'Inter-Regular', Arial, sans-serif, Helvetica;
+  --font-family-inter-medium: 'Inter-Medium', Arial, sans-serif, Helvetica;
+  --main-font-inter-bold: 'Inter-Bold', Arial, sans-serif, Helvetica;
+  --main-font-inter-extra-bold: 'Inter-ExtraBold', Arial, sans-serif, Helvetica;
+  --font-family-inter-semi-bold: 'Inter-SemiBold', Arial, sans-serif, Helvetica;
+  --main-font-istok-web-bold-italic: 'Istok Web BoldItalic', Arial, sans-serif,
+    Helvetica;
+  /*FONT SIZE*/
+  --font-size-s: 1.1rem;
+  --font-size-xs: 0.9rem;
+  --font-size-m: 1.7rem;
+  /*FONT COLOR AUTH */
+  --color-font-auth: #1d19fa;
+}

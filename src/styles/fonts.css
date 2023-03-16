@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'Inter-ExtraBold';
+  font-weight: 800;
+  src: local('Inter-Bold'),
+    url('../../public/assets/fonts/Inter-ExtraBold.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Inter-Bold';
+  font-weight: 700;
+  src: local('Inter-Bold'),
+    url('../../public/assets/fonts/Inter-Bold.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Inter-SemiBold';
+  font-weight: 600;
+  src: url('../../public/assets/fonts/Inter-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'Inter-Medium';
+  font-weight: 500;
+  src: url('../../public/assets/fonts/Inter-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'Inter-Regular';
+  font-weight: 400;
+  src: url('../../public/assets/fonts/Inter-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'Istok Web BoldItalic';
+  font-weight: 700;
+  src: local('Istok Web BoldItalic'),
+    url('../../public/assets/fonts/IstokWeb-BoldItalic.ttf') format('ttf');
+}
