@@ -36,6 +36,7 @@ const FormLogin = () => {
             className="login_email-input"
             type="email"
             name="email"
+            id="email"
             required
           />
         </EmailContainer>
@@ -47,6 +48,7 @@ const FormLogin = () => {
             className="login_password-input"
             type="password"
             name="password"
+            id="password"
             required
           />
         </PasswordContainer>

@@ -19,7 +19,7 @@ export const LoginContainer = styled.section`
 export const HeadContainer = styled.div`
   width: 100%;
   height: 150px;
-  background-image: url('../../../assets/images/register.jpg');
+  background-image: url('../../../assets/images/register.webp');
   background-size: cover;
   .login-house {
     width: 10%;
