@@ -10,7 +10,7 @@ describe('Given a Login pages', () => {
         <Login />
       </Provider>,
     );
-    const image = screen.getByRole('img');
-    expect(image).toBeInTheDocument();
+    const input = screen.getByRole('textbox');
+    expect(input).toBeInTheDocument();
   });
 });
