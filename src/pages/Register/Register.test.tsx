@@ -2,18 +2,23 @@ import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import { store } from '../../app/store';
-import Login from './Login';
+import { server } from '../../mocks/server';
+
+import Register from './Register';
 
 describe('Given a Login pages', () => {
-  test('Render an input', () => {
+  beforeAll(() => server.listen());
+  afterEach(() => server.resetHandlers());
+  afterAll(() => server.close());
+  test('Render an image', () => {
     render(
       <Provider store={store}>
         <MemoryRouter>
-          <Login />
+          <Register />
         </MemoryRouter>
       </Provider>,
     );
-    const input = screen.getByRole('textbox');
-    expect(input).toBeInTheDocument();
+    const button = screen.getByRole('button');
+    expect(button).toBeInTheDocument();
   });
 });

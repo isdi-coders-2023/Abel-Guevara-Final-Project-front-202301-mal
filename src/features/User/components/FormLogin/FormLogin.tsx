@@ -1,6 +1,7 @@
+import { Link, Navigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
-
-import { selectUserLogin, userLogin } from '../../User-slice';
+import { selectUserAuth, userLogin } from '../../auth-slice';
+import { ErrorMessage } from '../../../../pages/Login/LoginStyled';
 import {
   EmailContainer,
   Form,
@@ -10,17 +11,10 @@ import {
 
 const FormLogin = () => {
   const dispatch = useAppDispatch();
-  const { statusRes } = useAppSelector(selectUserLogin);
-  const message = () => {
-    if (statusRes === 'success') {
-      return 'Usted ha sido logueado';
-    }
-    if (statusRes === 'error') {
-      return 'Ha habido un error, inténtelo nuevamente';
-    }
-  };
+  const login = useAppSelector(selectUserAuth);
+  const { loginMsg } = useAppSelector(selectUserAuth);
 
-  return (
+  const FormLog = (
     <>
       <Form
         onSubmit={ev => {
@@ -37,6 +31,7 @@ const FormLogin = () => {
             type="email"
             name="email"
             id="email"
+            autoComplete="off"
             required
           />
         </EmailContainer>
@@ -49,6 +44,7 @@ const FormLogin = () => {
             type="password"
             name="password"
             id="password"
+            autoComplete="off"
             required
           />
         </PasswordContainer>
@@ -58,13 +54,35 @@ const FormLogin = () => {
       </Form>
       <TextLoginContainer>
         <p className="login-ask">¿No tienes cuenta?</p>
-        <p className="login-register">Regístrarse</p>
+        <Link className="login-register" to={'/auth/register'}>
+          <p>Regístrarse</p>
+        </Link>
       </TextLoginContainer>
-      <p role="paragraph" className="form-message">
-        {message()}
-      </p>
     </>
   );
+
+  const loginStatus = () => {
+    switch (login.statusRes) {
+      case 'success':
+        return (
+          <>
+            <p role="paragraph">Usted ha sido logueado</p>
+            <Navigate to={'/'} />
+          </>
+        );
+      case 'error':
+        return (
+          <>
+            {FormLog}
+            <ErrorMessage role="paragraph">{loginMsg}</ErrorMessage>
+          </>
+        );
+      default:
+        return <>{FormLog}</>;
+    }
+  };
+
+  return <>{loginStatus()}</>;
 };
 
 export default FormLogin;

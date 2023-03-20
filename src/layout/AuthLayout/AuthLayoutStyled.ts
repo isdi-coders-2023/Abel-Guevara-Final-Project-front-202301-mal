@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const LoginContainer = styled.section`
+export const LoginContainer = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,5 +46,28 @@ export const FormLogoContainer = styled.div`
   @media (min-width: 1440px) {
     width: 40%;
     align-self: self-start;
+  }
+`;
+
+export const Spinner = styled.div`
+  width: 4em;
+  height: 4em;
+  background: #a1a2a1;
+  border-radius: 50%;
+  margin: 5em auto;
+  border: 0.3em solid transparent;
+  animation: glow 1s ease infinite;
+
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 0 0.4em #a1a2a1, 0 0 0 0.1em #a1a2a1;
+      transform: rotate(360deg);
+    }
+    50% {
+      border-top-color: #605556;
+    }
+    100% {
+      box-shadow: 0 0 0 0.4em #a1a2a1, 0 0 0 3.6em transparent;
+    }
   }
 `;
