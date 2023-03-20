@@ -28,7 +28,7 @@ const FormRegister = () => {
   const register = useAppSelector(selectUserAuth);
   const { registerMsg } = useAppSelector(selectUserAuth);
 
-  const formRegister = (
+  const FormRegist = (
     <>
       <RegisterForm
         onSubmit={ev => {
@@ -77,12 +77,12 @@ const FormRegister = () => {
       case 'error':
         return (
           <>
-            {formRegister}
+            {FormRegist}
             <p data-testid="paragraph">{registerMsg}</p>
           </>
         );
       default:
-        return <>{formRegister}</>;
+        return <>{FormRegist}</>;
     }
   };
 
