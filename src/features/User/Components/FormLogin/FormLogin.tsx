@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
+import { selectUserAuth, userLogin } from '../../auth-slice';
 
-import { selectUserLogin, userLogin } from '../../User-slice';
 import {
   EmailContainer,
   Form,
@@ -10,7 +10,7 @@ import {
 
 const FormLogin = () => {
   const dispatch = useAppDispatch();
-  const { statusRes } = useAppSelector(selectUserLogin);
+  const { statusRes } = useAppSelector(selectUserAuth);
   const message = () => {
     if (statusRes === 'success') {
       return 'Usted ha sido logueado';
