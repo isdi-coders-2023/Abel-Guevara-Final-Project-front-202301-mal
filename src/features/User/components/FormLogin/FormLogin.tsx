@@ -1,7 +1,7 @@
-import { Link, Navigate } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
-import { selectUserAuth, userLogin } from '../../auth-slice';
-import { ErrorMessage } from '../../../../pages/Login/LoginStyled';
+import { Link } from 'react-router-dom';
+import { useAppDispatch } from '../../../../app/hooks';
+import { userLogin } from '../../auth-slice';
+
 import {
   EmailContainer,
   Form,
@@ -11,10 +11,8 @@ import {
 
 const FormLogin = () => {
   const dispatch = useAppDispatch();
-  const login = useAppSelector(selectUserAuth);
-  const { loginMsg } = useAppSelector(selectUserAuth);
 
-  const FormLog = (
+  return (
     <>
       <Form
         onSubmit={ev => {
@@ -60,29 +58,6 @@ const FormLogin = () => {
       </TextLoginContainer>
     </>
   );
-
-  const loginStatus = () => {
-    switch (login.statusRes) {
-      case 'success':
-        return (
-          <>
-            <p role="paragraph">Usted ha sido logueado</p>
-            <Navigate to={'/'} />
-          </>
-        );
-      case 'error':
-        return (
-          <>
-            {FormLog}
-            <ErrorMessage role="paragraph">{loginMsg}</ErrorMessage>
-          </>
-        );
-      default:
-        return <>{FormLog}</>;
-    }
-  };
-
-  return <>{loginStatus()}</>;
 };
 
 export default FormLogin;
