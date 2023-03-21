@@ -9,7 +9,6 @@ import UserModel, { UserLog } from './UserModel';
 export type AuthStatus = 'idle' | 'success' | 'error';
 
 export interface AuthFormUser {
-  logIn: { accessToken: string };
   registerState: AuthStatus;
   statusRes: AuthStatus;
   status: APIStatus;
@@ -18,7 +17,6 @@ export interface AuthFormUser {
 }
 
 const INITIAL_STATE: AuthFormUser = {
-  logIn: { accessToken: '' },
   registerState: 'idle',
   statusRes: 'idle',
   status: APIStatus.IDLE,
@@ -72,7 +70,6 @@ export const logSlice = createSlice({
       .addCase(userLogin.fulfilled, (state, action) => {
         state.status = APIStatus.IDLE;
         state.statusRes = 'success';
-        state.logIn = action.payload;
         sessionStorage.setItem('accessToken', action.payload.accessToken);
       })
       .addCase(userLogin.rejected, (state, action: any) => {
