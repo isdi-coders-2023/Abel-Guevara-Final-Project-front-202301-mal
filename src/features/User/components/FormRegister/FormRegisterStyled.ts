@@ -7,6 +7,8 @@ export const RegisterForm = styled.form`
   input {
     font-family: var(--font-family-inter-medium);
     font-size: var(--font-size-s);
+    padding-left: 3%;
+    padding-right: 3%;
   }
   @media (min-width: 1440px) {
     input {
@@ -148,6 +150,35 @@ export const RegisterButton = styled.button`
   @media (min-width: 1440px) {
     height: 60px;
     border-radius: 10px;
+    font-family: var(--main-font-inter-extra-bold);
+    font-size: var(--font-size-m);
+  }
+`;
+
+export const TextRegisterContainer = styled.div`
+  width: 90%;
+  display: flex;
+  .register-login {
+    text-align: right;
+    width: 50%;
+    font-family: var(--font-family-inter-semi-bold);
+    font-size: var(--font-size-xs);
+    color: var(--color-font-auth);
+  }
+  @media (min-width: 1440px) {
+    .register-login {
+      font-family: var(--main-font-inter-extra-bold);
+      font-size: var(--font-size-m);
+    }
+  }
+`;
+
+export const HaveCountText = styled.p`
+  width: 50%;
+  text-align: left;
+  font-family: var(--font-family-inter-semi-bold);
+  font-size: var(--font-size-xs);
+  @media (min-width: 1440px) {
     font-family: var(--main-font-inter-extra-bold);
     font-size: var(--font-size-m);
   }
