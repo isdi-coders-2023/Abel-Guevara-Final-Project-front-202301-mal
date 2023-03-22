@@ -14,6 +14,7 @@ describe('Given a Login pages', () => {
       </Provider>,
     );
     const image = screen.getByRole('img');
+
     expect(image).toBeInTheDocument();
   });
 });

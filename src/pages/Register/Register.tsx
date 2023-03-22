@@ -2,9 +2,9 @@ import FormRegister from '../../features/User/components/FormRegister/FormRegist
 
 const Register = () => {
   return (
-    <div>
+    <>
       <FormRegister />
-    </div>
+    </>
   );
 };
 
