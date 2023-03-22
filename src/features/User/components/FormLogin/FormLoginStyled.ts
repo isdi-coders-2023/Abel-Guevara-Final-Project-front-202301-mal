@@ -17,6 +17,8 @@ export const Form = styled.form`
   input {
     font-family: var(--font-family-inter-medium);
     font-size: var(--font-size-s);
+    padding-left: 3%;
+    padding-right: 3%;
   }
   @media (min-width: 1440px) {
     .login-button {
