@@ -26,6 +26,7 @@ describe('Given a LoginForm component', () => {
       await userEvent.type(inputEmail, 'pepito@test.com');
       await userEvent.type(inputPassword, 'password');
       await userEvent.click(screen.getByRole('button'));
+
       expect(window.location.pathname).toEqual('/');
     });
   });
