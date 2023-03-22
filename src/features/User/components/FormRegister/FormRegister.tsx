@@ -10,6 +10,7 @@ import {
   EmailContainer,
   EmailInput,
   EmailLabel,
+  HaveCountText,
   NameContainer,
   NameInput,
   NameLabel,
@@ -21,6 +22,7 @@ import {
   SurNameContainer,
   SurNameInput,
   SurNameLabel,
+  TextRegisterContainer,
 } from './FormRegisterStyled';
 
 const FormRegister = () => {
@@ -61,6 +63,12 @@ const FormRegister = () => {
         </PasswordContainer>
         <RegisterButton type="submit">Registrarse</RegisterButton>
       </RegisterForm>
+      <TextRegisterContainer>
+        <HaveCountText>¿Ya tiene cuenta?</HaveCountText>
+        <Link className="register-login" to={'/auth/login'}>
+          <p>Inicia sesión</p>
+        </Link>
+      </TextRegisterContainer>
     </>
   );
   const registerStatus = () => {

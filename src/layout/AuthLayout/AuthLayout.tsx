@@ -27,7 +27,11 @@ const AuthLayout = () => {
           src="../../../assets/images/logo-negro.png"
           alt="inked and styled"
         />
-        {status === APIStatus.LOADING ? <Spinner /> : <Outlet />}
+        {status === APIStatus.LOADING ? (
+          <Spinner data-testid="spinner" />
+        ) : (
+          <Outlet />
+        )}
       </FormLogoContainer>
     </LoginContainer>
   );
