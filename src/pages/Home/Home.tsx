@@ -1,27 +1,57 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {
+  selectBusinesses,
+  getAllBusinessesAsync,
+} from '../../features/Businesses/businesses-slice';
+import CardList from '../../features/Businesses/components/CardList/CardList';
+import { APIStatus } from '../../shared/api-status';
+import {
+  ErrorHome,
   HomeContainer,
   HomeDescription,
-  HomeTitle,
   LinkToRegister,
+  Loading,
 } from './HomeStyled';
 
 const Home = () => {
-  return (
-    <>
-      <HomeContainer>
-        <HomeTitle>Bienvenido a Inked & Styled</HomeTitle>
-        <HomeDescription>
-          {
-            'Esta es una aplicación de reseñas de salones de belleza, en breve podrá disfrutar de su contenido. Regístrese para seguir la evolución.'
-          }
-        </HomeDescription>
-        <Link to={'/auth/register'}>
-          <LinkToRegister>Regístrese</LinkToRegister>
-        </Link>
-      </HomeContainer>
-    </>
-  );
+  const homeState = useAppSelector(selectBusinesses);
+  const dispatch = useAppDispatch();
+  const businessesState = useAppSelector(selectBusinesses);
+  useEffect(() => {
+    dispatch(getAllBusinessesAsync());
+  }, [dispatch]);
+
+  const homeSatus = () => {
+    switch (homeState.status) {
+      case APIStatus.LOADING:
+        return <Loading src="../../../assets/images/logo-negro.png" />;
+
+      case APIStatus.ERROR:
+        return (
+          <ErrorHome role="paragraph">No hay salones para mostrar</ErrorHome>
+        );
+      default:
+        return (
+          <>
+            <HomeContainer>
+              <HomeDescription>
+                {
+                  'Conoce todo sobre un salón de belleza antes de cruzar la puerta. Regístrese para seguir la evolución.'
+                }
+              </HomeDescription>
+              <Link to={'/auth/register'}>
+                <LinkToRegister>Regístrese</LinkToRegister>
+              </Link>
+              <CardList businesses={businessesState.businesses} />
+            </HomeContainer>
+          </>
+        );
+    }
+  };
+
+  return <>{homeSatus()}</>;
 };
 
 export default Home;

@@ -1,5 +1,6 @@
 :root {
   --background-image-register: '../../public/assets/register.jpg';
+  --background-image-header: '../../assets/images/header-movil.webp';
   /*FONT-FAMILY*/
   --font-family-inter-regular: 'Inter-Regular', Arial, sans-serif, Helvetica;
   --font-family-inter-medium: 'Inter-Medium', Arial, sans-serif, Helvetica;
@@ -16,4 +17,6 @@
   --font-size-xl: 4rem;
   /*FONT COLOR AUTH */
   --color-font-auth: #1d19fa;
+  --color-font-score: #ffffff;
+  --color-font-address: #433e3e;
 }

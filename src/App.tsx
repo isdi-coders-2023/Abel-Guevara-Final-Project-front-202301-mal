@@ -2,7 +2,11 @@ import { router } from './router/app-router';
 import { RouterProvider } from 'react-router-dom';
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  );
 }
 
 export default App;

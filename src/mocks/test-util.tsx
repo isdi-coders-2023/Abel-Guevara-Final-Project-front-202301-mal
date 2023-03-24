@@ -21,6 +21,11 @@ export const renderWithProviders = (
         loginMsg: '',
         registerMsg: '',
       },
+      business: {
+        businesses: [],
+        status: APIStatus.IDLE,
+        businessMsg: '',
+      },
     },
     store = setupStore(preloadedState),
     ...renderOptions
