@@ -12,7 +12,7 @@ export const loginUser = async (user: UserLog): Promise<AuthResponse> => {
       body: JSON.stringify(user),
     },
   );
-  const loggedUser = await response.json();
+  const loggedUser: AuthResponse = await response.json();
 
   if (!response.ok) {
     throw new Error(loggedUser.msg);
