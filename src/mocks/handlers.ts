@@ -43,7 +43,6 @@ export const handlers = [
   rest.get(
     'https://abel-guevara-final-project-back-202301.onrender.com/api/v1/business',
     (_req, res, ctx) => {
-      console.log('paso si o si');
       return res(
         ctx.status(200),
         ctx.json([
@@ -69,7 +68,6 @@ export const errorHandlers = [
   rest.get(
     'https://abel-guevara-final-project-back-202301.onrender.com/api/v1/business',
     (_req, res, ctx) => {
-      console.log('paso por aqui');
       return res.once(ctx.status(404), ctx.json(null));
     },
   ),
