@@ -3,7 +3,7 @@ import { render, RenderOptions } from '@testing-library/react';
 import { PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';
 import { AppStore, RootState, setupStore } from '../app/store';
-import { APIStatus } from '../shared/api-status';
+import { APIStatus } from '../shared/states';
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
   preloadedState?: PreloadedState<RootState>;
@@ -25,6 +25,7 @@ export const renderWithProviders = (
         businesses: [],
         status: APIStatus.IDLE,
         businessMsg: '',
+        businessInfo: 'idle',
       },
     },
     store = setupStore(preloadedState),
