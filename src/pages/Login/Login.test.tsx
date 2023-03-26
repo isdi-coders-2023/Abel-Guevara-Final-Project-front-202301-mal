@@ -2,7 +2,6 @@ import { server } from '../../mocks/server';
 import { screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
-
 import Login from './Login';
 import { renderWithProviders } from '../../mocks/test-util';
 

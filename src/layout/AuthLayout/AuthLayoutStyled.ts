@@ -49,7 +49,7 @@ export const FormLogoContainer = styled.div`
   }
 `;
 
-export const Spinner = styled.div`
+export const Spinner = styled.p`
   width: 4em;
   height: 4em;
   background: #a1a2a1;

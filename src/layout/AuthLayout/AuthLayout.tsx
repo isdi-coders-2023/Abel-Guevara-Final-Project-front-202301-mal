@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, Outlet } from 'react-router-dom';
 import { useAppSelector } from '../../app/hooks';
 import { selectUserAuth } from '../../features/User/auth-slice';
-import { APIStatus } from '../../shared/api-status';
+import { APIStatus } from '../../shared/states';
 import {
   FormLogoContainer,
   HeadContainer,
@@ -28,7 +28,7 @@ const AuthLayout = () => {
           alt="inked and styled"
         />
         {status === APIStatus.LOADING ? (
-          <Spinner data-testid="spinner" />
+          <Spinner data-testid="spinner-element" />
         ) : (
           <Outlet />
         )}
