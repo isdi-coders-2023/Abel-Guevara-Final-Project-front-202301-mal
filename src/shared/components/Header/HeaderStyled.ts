@@ -66,7 +66,7 @@ export const HeaderContainer = styled.header`
     top: 0px;
     right: -10px;
     width: 100%;
-    height: 194px;
+    height: 100px;
     background: rgba(48, 48, 48, 0.8);
     opacity: 0;
     z-index: 1;
@@ -100,6 +100,7 @@ export const HeaderContainer = styled.header`
     transform: translatex(0px);
     text-align: center;
     margin-bottom: -5%;
+    margin-top: -4%;
   }
 
   #check:checked ~ .fondo {
@@ -157,6 +158,12 @@ export const FilterTatto = styled.p`
 `;
 
 export const SessionUser = styled.p`
+  color: var(--color-font-score);
+  font-family: var(--main-font-inter-extra-bold);
+  font-size: var(--font-size-s);
+`;
+
+export const CloseSession = styled.p`
   color: var(--color-font-score);
   font-family: var(--main-font-inter-extra-bold);
   font-size: var(--font-size-s);

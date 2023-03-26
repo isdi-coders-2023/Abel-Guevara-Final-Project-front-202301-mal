@@ -6,7 +6,7 @@ import {
   getAllBusinessesAsync,
 } from '../../features/Businesses/businesses-slice';
 import CardList from '../../features/Businesses/components/CardList/CardList';
-import { APIStatus } from '../../shared/api-status';
+import { APIStatus } from '../../shared/states';
 import {
   ErrorHome,
   HomeContainer,

@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
+  CloseSession,
   CreateBusiness,
   FilterBarber,
   FilterHairdresser,
@@ -10,6 +11,16 @@ import {
 } from './HeaderStyled';
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const authRegisterSalon = () => {
+    const registerSalon =
+      sessionStorage.getItem('accessToken') === null
+        ? navigate('/auth/login')
+        : navigate('/create');
+    return registerSalon;
+  };
+
   return (
     <>
       <HeaderContainer>
@@ -22,9 +33,18 @@ const Header = () => {
         </label>
 
         <div className="menu">
-          <Link to={'/auth/login'}>
-            <SessionUser>Inicie sesión</SessionUser>
-          </Link>
+          {sessionStorage.getItem('accessToken') === null ? (
+            <Link to={'/auth/login'}>
+              <SessionUser>Inicie sesión</SessionUser>
+            </Link>
+          ) : (
+            <CloseSession
+              role="paragraph"
+              onClick={() => sessionStorage.removeItem('accessToken')}
+            >
+              Cerrar sesión
+            </CloseSession>
+          )}
           <FilterBarber>Barbería</FilterBarber>
           <FilterHairdresser>Peluquería</FilterHairdresser>
           <FilterTatto>Tatuajes</FilterTatto>
@@ -35,7 +55,9 @@ const Header = () => {
             alt="inked-styled"
           />
         </Logo>
-        <CreateBusiness>¿Tienes un salón? Regístralo aquí</CreateBusiness>
+        <CreateBusiness onClick={() => authRegisterSalon()}>
+          ¿Tienes un salón? Regístralo aquí
+        </CreateBusiness>
       </HeaderContainer>
     </>
   );
