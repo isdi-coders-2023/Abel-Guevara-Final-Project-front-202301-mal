@@ -47,3 +47,8 @@ export const ReviewText = styled.p`
   font-family: var(--font-family-inter-regular);
   font-size: var(--font-size-xs);
 `;
+
+export const ErrorDetail = styled.p`
+  font-family: var(--font-family-inter-semi-bold);
+  font-size: var(--font-size-m);
+`;
