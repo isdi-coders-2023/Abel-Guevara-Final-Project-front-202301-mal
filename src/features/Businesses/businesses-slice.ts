@@ -5,7 +5,7 @@ import getAllBusinesses, {
   createBusiness,
   getByIdBusiness,
 } from './businesses-api';
-import Business, { ApiError } from './businesses-model';
+import Business from './businesses-model';
 
 const STATE_NAME = 'businesses';
 export type BusinessState = 'idle' | 'success' | 'error';
