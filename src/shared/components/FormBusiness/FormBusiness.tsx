@@ -44,8 +44,8 @@ const FormBusiness = () => {
         </CategoriesSelect>
       </CategoriesContainer>
       <NameContainer>
-        <NameLabel htmlFor="namebusiness">Nombre del salón</NameLabel>
-        <NameInput type="text" name="namebusiness" id="namebusiness" required />
+        <NameLabel htmlFor="nameBusiness">Nombre del salón</NameLabel>
+        <NameInput type="text" name="nameBusiness" id="nameBusiness" required />
       </NameContainer>
       <AddressContainer>
         <AddressLabel htmlFor="address">Dirección</AddressLabel>
