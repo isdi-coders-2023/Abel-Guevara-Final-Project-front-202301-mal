@@ -103,7 +103,6 @@ export const businessesSlice = createSlice({
       })
       .addCase(getByIdBusinessAsync.rejected, (state, action) => {
         state.status = APIStatus.ERROR;
-        state.businessMsg = (action.payload as ApiError).msg;
       });
   },
 });
