@@ -20,4 +20,15 @@ export type BusinessInfo = Omit<
   '_id' | 'creator' | 'reviews' | 'score'
 >;
 
+export type BusinessId = Pick<Business, '_id'>;
+
+export type ApiError = {
+  msg: string;
+};
+
+/**
+ * Es una manera de tipar, donde variará en la T el tipado que quiera usar
+ */
+export type ApiResponse<T> = ApiError | T;
+
 export default Business;
