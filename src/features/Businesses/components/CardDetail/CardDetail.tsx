@@ -1,3 +1,5 @@
+import { regular, solid } from '@fortawesome/fontawesome-svg-core/import.macro';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FC, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
 import { getByIdBusinessAsync, selectBusinesses } from '../../businesses-slice';
@@ -11,6 +13,16 @@ import {
   CardScore,
   ScoreContainer,
 } from '../Card/CardStyled';
+import {
+  ContactText,
+  DescriptionText,
+  HowAreContainer,
+  HowAreText,
+  PhoneText,
+  ReviewsContainer,
+  ReviewText,
+  ReviewTitle,
+} from './CardDetailStyled';
 
 interface CardDetailProps {
   businessId: string;
@@ -38,17 +50,36 @@ const CardDetail: FC<CardDetailProps> = ({ businessId }) => {
   };
 
   return (
-    <CardContainer>
-      <CardImgContainer>
-        <CardImg src={business.profileUrl} alt={business.nameBusiness} />
-        <ScoreContainer>
-          <CardAveScore role="paragraph">{averageCalculeDetail()}</CardAveScore>
-          <CardScore>{`${business.reviews.length} reseñas`}</CardScore>
-        </ScoreContainer>
-      </CardImgContainer>
-      <CardNameBusinnes>{business.nameBusiness}</CardNameBusinnes>
-      <CardAddress>{business.address}</CardAddress>
-    </CardContainer>
+    <>
+      <CardContainer>
+        <CardImgContainer>
+          <CardImg src={business.profileUrl} alt={business.nameBusiness} />
+          <ScoreContainer>
+            <CardAveScore role="paragraph">
+              {averageCalculeDetail()}
+            </CardAveScore>
+            <CardScore>{`${business.reviews.length} reseñas`}</CardScore>
+          </ScoreContainer>
+        </CardImgContainer>
+        <CardNameBusinnes>{business.nameBusiness}</CardNameBusinnes>
+        <CardAddress>{business.address}</CardAddress>
+      </CardContainer>
+      <HowAreContainer>
+        <HowAreText>QUIENES SOMOS</HowAreText>
+        <DescriptionText>{business.description}</DescriptionText>
+        <ContactText>CONTACTO</ContactText>
+        <PhoneText>{business.phone}</PhoneText>
+      </HowAreContainer>
+      <ReviewsContainer>
+        <ReviewTitle>Reseñas</ReviewTitle>
+        <FontAwesomeIcon className="star-detail" icon={solid('star')} />
+        <FontAwesomeIcon className="star-detail" icon={solid('star')} />
+        <FontAwesomeIcon className="star-detail" icon={solid('star')} />
+        <FontAwesomeIcon className="star-detail" icon={solid('star')} />
+        <FontAwesomeIcon className="star-detail" icon={solid('star')} />
+        <ReviewText>{business.reviews}</ReviewText>
+      </ReviewsContainer>
+    </>
   );
 };
 
