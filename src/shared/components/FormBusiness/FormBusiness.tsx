@@ -38,9 +38,9 @@ const FormBusiness = () => {
         <CategoriesLabel htmlFor="categories">Categoría</CategoriesLabel>
         <CategoriesSelect name="categories" id="categories" required>
           <option>Selecciona una categoría</option>
-          <option value="barbería">Barbería</option>
-          <option value="peluquería">Peluquería</option>
-          <option value="tatueje">Tatuaje</option>
+          <option value="Barbería">Barbería</option>
+          <option value="Peluquería">Peluquería</option>
+          <option value="Tatuaje">Tatuaje</option>
         </CategoriesSelect>
       </CategoriesContainer>
       <NameContainer>
