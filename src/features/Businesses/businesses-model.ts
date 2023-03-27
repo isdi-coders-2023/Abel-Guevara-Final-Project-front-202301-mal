@@ -20,4 +20,12 @@ export type BusinessInfo = Omit<
   '_id' | 'creator' | 'reviews' | 'score'
 >;
 
+export type BusinessId = Pick<Business, '_id'>;
+
+export type ApiError = {
+  msg: string;
+};
+
+export type ApiResponse<T> = ApiError | T;
+
 export default Business;

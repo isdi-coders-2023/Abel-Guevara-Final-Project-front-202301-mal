@@ -62,6 +62,29 @@ export const handlers = [
       );
     },
   ),
+
+  rest.get(
+    'https://abel-guevara-final-project-back-202301.onrender.com/api/v1/business/2023',
+    (_req, res, ctx) => {
+      return res(
+        ctx.status(200),
+        ctx.json([
+          {
+            _id: 2023,
+            categories: 'Barbería',
+            nameBusiness: "La Habana 50's",
+            address: 'Calle Obispo Bartolomé Espejo, 17, 29014, Málaga',
+            phone: '697695015',
+            profileUrl:
+              'https://pvrpvjohhofutktrueiu.supabase.co/storage/v1/object/public/business/undefined1679403399044Habana%2050.jpeg',
+            description: 'La mejor barber',
+            reviews: ['muy bien atendido'],
+            score: [5],
+          },
+        ]),
+      );
+    },
+  ),
 ];
 
 export const errorHandlers = [
@@ -69,6 +92,16 @@ export const errorHandlers = [
     'https://abel-guevara-final-project-back-202301.onrender.com/api/v1/business',
     (_req, res, ctx) => {
       return res.once(ctx.status(404), ctx.json(null));
+    },
+  ),
+
+  rest.get(
+    'https://abel-guevara-final-project-back-202301.onrender.com/api/v1/business/20230331',
+    (_req, res, ctx) => {
+      return res.once(
+        ctx.status(404),
+        ctx.json({ msg: 'El salón buscado no existe' }),
+      );
     },
   ),
 ];

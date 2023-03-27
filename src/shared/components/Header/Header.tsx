@@ -50,10 +50,12 @@ const Header = () => {
           <FilterTatto>Tatuajes</FilterTatto>
         </div>
         <Logo>
-          <img
-            src="../../../../assets/images/logo-blanco.png"
-            alt="inked-styled"
-          />
+          <Link to={'/'}>
+            <img
+              src="../../../../assets/images/logo-blanco.png"
+              alt="inked-styled"
+            />
+          </Link>
         </Logo>
         <CreateBusiness onClick={() => authRegisterSalon()}>
           ¿Tienes un salón? Regístralo aquí
