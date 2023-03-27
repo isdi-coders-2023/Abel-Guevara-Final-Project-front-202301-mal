@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import Business from '../../businesses-model';
 import {
   CardAddress,
@@ -16,6 +17,7 @@ interface CardProps {
 }
 
 const Card: FC<CardProps> = ({ businesses }) => {
+  const { _id } = businesses;
   const averageCalcule = () => {
     let average;
     if (businesses.score.length === 0) {
@@ -32,15 +34,17 @@ const Card: FC<CardProps> = ({ businesses }) => {
 
   return (
     <CardContainer>
-      <CardImgContainer>
-        <CardImg src={businesses.profileUrl} alt={businesses.nameBusiness} />
-        <ScoreContainer>
-          <CardAveScore role="paragraph">{averageCalcule()}</CardAveScore>
-          <CardScore>{`${businesses.reviews.length} reseñas`}</CardScore>
-        </ScoreContainer>
-      </CardImgContainer>
-      <CardNameBusinnes>{businesses.nameBusiness}</CardNameBusinnes>
-      <CardAddress>{businesses.address}</CardAddress>
+      <Link className="detail-link" to={`/detail/${_id}`}>
+        <CardImgContainer>
+          <CardImg src={businesses.profileUrl} alt={businesses.nameBusiness} />
+          <ScoreContainer>
+            <CardAveScore role="paragraph">{averageCalcule()}</CardAveScore>
+            <CardScore>{`${businesses.reviews.length} reseñas`}</CardScore>
+          </ScoreContainer>
+        </CardImgContainer>
+        <CardNameBusinnes>{businesses.nameBusiness}</CardNameBusinnes>
+        <CardAddress>{businesses.address}</CardAddress>
+      </Link>
     </CardContainer>
   );
 };

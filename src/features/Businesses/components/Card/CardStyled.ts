@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 export const CardContainer = styled.article`
   width: 100%;
+  .detail-link {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 
 export const CardImgContainer = styled.div`
