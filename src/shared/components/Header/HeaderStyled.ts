@@ -64,8 +64,8 @@ export const HeaderContainer = styled.header`
   .menu {
     margin: auto;
     top: 0px;
-    right: -10px;
-    width: 100%;
+    right: 25px;
+    width: 80%;
     height: 100px;
     background: rgba(48, 48, 48, 0.8);
     opacity: 0;

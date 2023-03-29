@@ -14,14 +14,22 @@ import {
   LinkToRegister,
   Loading,
 } from './HomeStyled';
+import { restoreDeleteStatus } from '../../features/Businesses/businesses-slice';
 
 const Home = () => {
   const homeState = useAppSelector(selectBusinesses);
   const dispatch = useAppDispatch();
   const businessesState = useAppSelector(selectBusinesses);
+  const { businessDel } = useAppSelector(selectBusinesses);
   useEffect(() => {
     dispatch(getAllBusinessesAsync());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (businessDel === 'success') {
+      dispatch(restoreDeleteStatus());
+    }
+  }, [dispatch, businessDel]);
 
   const homeSatus = () => {
     switch (homeState.status) {

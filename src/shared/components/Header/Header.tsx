@@ -1,4 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../../../app/hooks';
+import { restoreuserEmail } from '../../../features/User/auth-slice';
 import {
   CloseSession,
   CreateBusiness,
@@ -12,6 +14,7 @@ import {
 
 const Header = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const authRegisterSalon = () => {
     const registerSalon =
@@ -40,7 +43,9 @@ const Header = () => {
           ) : (
             <CloseSession
               role="paragraph"
-              onClick={() => sessionStorage.removeItem('accessToken')}
+              onClick={() => {
+                return dispatch(restoreuserEmail());
+              }}
             >
               Cerrar sesión
             </CloseSession>
