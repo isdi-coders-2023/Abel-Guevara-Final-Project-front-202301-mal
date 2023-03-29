@@ -1,10 +1,17 @@
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FC, useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
+
 import { Loading } from '../../../../pages/Home/HomeStyled';
-import { APIStatus } from '../../../../shared/states';
-import { getByIdBusinessAsync, selectBusinesses } from '../../businesses-slice';
+
+import { selectUserAuth } from '../../../User/auth-slice';
+import {
+  deleteBusinessAsync,
+  getByIdBusinessAsync,
+  selectBusinesses,
+} from '../../businesses-slice';
 import {
   CardAddress,
   CardContainer,
@@ -14,6 +21,7 @@ import {
 } from '../Card/CardStyled';
 import {
   ContactText,
+  DeleteButton,
   DescriptionText,
   ErrorDetail,
   HowAreContainer,
@@ -29,17 +37,49 @@ interface CardDetailProps {
 }
 
 const CardDetail: FC<CardDetailProps> = ({ businessId }) => {
-  const { business, status } = useAppSelector(selectBusinesses);
+  const { business, businessDel, businessByIdState } =
+    useAppSelector(selectBusinesses);
+  const { userEmail } = useAppSelector(selectUserAuth);
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getByIdBusinessAsync(businessId));
   }, [dispatch, businessId]);
 
+  const deleteButton = () => {
+    switch (businessDel) {
+      case 'success':
+        return (
+          <>
+            <Navigate to={'/'} />
+          </>
+        );
+      case 'error':
+        return (
+          <ErrorDetail data-testid="error-message">
+            {'Su salòn no se ha podido eliminar'}
+          </ErrorDetail>
+        );
+      default:
+        if (userEmail === business.creator) {
+          return (
+            <DeleteButton
+              data-testid="delete"
+              onClick={() => {
+                dispatch(deleteBusinessAsync(businessId));
+              }}
+            >
+              <FontAwesomeIcon icon={solid('scissors')} rotation={180} />
+            </DeleteButton>
+          );
+        }
+    }
+  };
+
   const detailState = () => {
-    switch (status) {
-      case APIStatus.LOADING:
+    switch (businessByIdState) {
+      case 'idle':
         return <Loading src="../../../assets/images/logo-negro.png" />;
-      case APIStatus.ERROR:
+      case 'error':
         return (
           <ErrorDetail data-testid="error-msg">
             {'El salón buscado no existe'}
@@ -50,6 +90,7 @@ const CardDetail: FC<CardDetailProps> = ({ businessId }) => {
           <>
             <CardContainer>
               <CardImgContainer>
+                <>{deleteButton()}</>
                 <CardImg
                   src={business.profileUrl}
                   alt={business.nameBusiness}

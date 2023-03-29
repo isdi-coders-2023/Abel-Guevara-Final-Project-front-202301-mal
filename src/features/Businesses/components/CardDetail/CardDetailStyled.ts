@@ -9,6 +9,17 @@ export const HowAreContainer = styled.article`
   padding-top: 9%;
 `;
 
+export const DeleteButton = styled.button`
+  position: absolute;
+  height: 65px;
+  width: 20%;
+  z-index: 999;
+  font-size: 2.3rem;
+  background: rgba(9, 9, 9, 0.5);
+  color: lightcyan;
+  border-radius: 0px 10px;
+`;
+
 export const HowAreText = styled.p`
   font-family: var(--font-family-inter-semi-bold);
 `;
@@ -49,6 +60,13 @@ export const ReviewText = styled.p`
 `;
 
 export const ErrorDetail = styled.p`
-  font-family: var(--font-family-inter-semi-bold);
+  font-family: var(--font-family-inter-medium);
   font-size: var(--font-size-m);
+  text-align: center;
+`;
+
+export const DeletedSalonText = styled.p`
+  font-family: var(--font-family-inter-medium);
+  font-size: var(--font-size-m);
+  text-align: center;
 `;
