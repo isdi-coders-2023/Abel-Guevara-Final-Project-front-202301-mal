@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const CardContainer = styled.article`
   width: 100%;
+  max-height: 355px;
   .detail-link {
     text-decoration: none;
     color: inherit;
