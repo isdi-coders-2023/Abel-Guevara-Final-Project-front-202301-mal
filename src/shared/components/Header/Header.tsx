@@ -4,9 +4,6 @@ import { restoreuserEmail } from '../../../features/User/auth-slice';
 import {
   CloseSession,
   CreateBusiness,
-  FilterBarber,
-  FilterHairdresser,
-  FilterTatto,
   HeaderContainer,
   Logo,
   SessionUser,
@@ -50,9 +47,6 @@ const Header = () => {
               Cerrar sesión
             </CloseSession>
           )}
-          <FilterBarber>Barbería</FilterBarber>
-          <FilterHairdresser>Peluquería</FilterHairdresser>
-          <FilterTatto>Tatuajes</FilterTatto>
         </div>
         <Logo>
           <Link to={'/'}>

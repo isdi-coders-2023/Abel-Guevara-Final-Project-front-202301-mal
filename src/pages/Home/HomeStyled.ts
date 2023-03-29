@@ -27,6 +27,25 @@ export const LinkToRegister = styled.p`
   }
 `;
 
+export const FilterContainer = styled.section`
+  display: inline-flex;
+  gap: 10%;
+  justify-content: center;
+`;
+
+export const FilterCategoriesText = styled.button`
+  font-family: var(--main-font-inter-extra-bold);
+  font-size: var(--font-size-s);
+  margin-bottom: 10%;
+  border-radius: 5px;
+  background: rgba(217, 217, 217, 0.7);
+  offset: 0px, 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: inherit;
+  height: 35px;
+  cursor: pointer;
+`;
+
 export const Loading = styled.img`
   width: 60%;
   height: 30%;

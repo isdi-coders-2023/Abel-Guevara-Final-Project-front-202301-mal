@@ -30,8 +30,12 @@ describe('Given a LoginForm component', () => {
       await userEvent.type(inputPassword, 'password');
       await userEvent.click(screen.getByRole('button'));
 
-      const link = screen.getByRole('link');
-      expect(link).toBeInTheDocument();
+      await waitFor(async () => {
+        const items = await screen.findByRole('heading');
+        expect(items).toHaveTextContent(
+          'Conoce todo sobre un salón de belleza antes de cruzar la puerta. Regístrese para seguir la evolución.',
+        );
+      });
     });
   });
 

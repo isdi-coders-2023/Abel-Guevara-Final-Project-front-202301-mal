@@ -20,8 +20,10 @@ describe('Given a BusinessesList component', () => {
       );
 
       await waitFor(async () => {
-        const items = await screen.findAllByRole('listitem');
-        expect(items).toHaveLength(1);
+        const items = await screen.findByRole('heading');
+        expect(items).toHaveTextContent(
+          'Conoce todo sobre un salón de belleza antes de cruzar la puerta. Regístrese para seguir la evolución.',
+        );
       });
     });
   });
