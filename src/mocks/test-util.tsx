@@ -20,6 +20,7 @@ export const renderWithProviders = (
         status: APIStatus.IDLE,
         loginMsg: '',
         registerMsg: '',
+        userEmail: '',
       },
       business: {
         businesses: [],
@@ -38,6 +39,8 @@ export const renderWithProviders = (
           score: [],
           creator: '',
         },
+        businessDel: 'idle',
+        businessByIdState: 'idle',
       },
     },
     store = setupStore(preloadedState),
