@@ -1,7 +1,7 @@
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FC, useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
 
 import { Loading } from '../../../../pages/Home/HomeStyled';
@@ -89,6 +89,12 @@ const CardDetail: FC<CardDetailProps> = ({ businessId }) => {
         return (
           <>
             <CardContainer>
+              <Link to={'/'}>
+                <FontAwesomeIcon
+                  className="back-home"
+                  icon={solid('circle-arrow-left')}
+                />
+              </Link>
               <CardImgContainer>
                 <>{deleteButton()}</>
                 <CardImg

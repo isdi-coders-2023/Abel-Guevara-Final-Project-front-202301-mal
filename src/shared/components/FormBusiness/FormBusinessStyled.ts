@@ -72,6 +72,7 @@ export const DescriptionLabel = styled.label``;
 export const DescriptionTextarea = styled.textarea`
   height: 70px;
   margin-bottom: 7%;
+  font-family: var(--font-family-inter-regular);
 `;
 
 export const FormButton = styled.button`

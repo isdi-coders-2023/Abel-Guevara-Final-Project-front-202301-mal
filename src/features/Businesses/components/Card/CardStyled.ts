@@ -6,6 +6,11 @@ export const CardContainer = styled.article`
     text-decoration: none;
     color: inherit;
   }
+  .back-home {
+    height: 5%;
+    padding-bottom: 3%;
+    color: #433e3e;
+  }
 `;
 
 export const CardImgContainer = styled.div`
