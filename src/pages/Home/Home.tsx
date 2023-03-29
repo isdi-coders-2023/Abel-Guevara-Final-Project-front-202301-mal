@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {
   selectBusinesses,
   getAllBusinessesAsync,
+  restoreDeleteStatus,
 } from '../../features/Businesses/businesses-slice';
 import CardList from '../../features/Businesses/components/CardList/CardList';
 import { APIStatus } from '../../shared/states';
@@ -14,7 +15,6 @@ import {
   LinkToRegister,
   Loading,
 } from './HomeStyled';
-import { restoreDeleteStatus } from '../../features/Businesses/businesses-slice';
 import {
   restoreStatusRes,
   selectUserAuth,
