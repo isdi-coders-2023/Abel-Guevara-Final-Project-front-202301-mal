@@ -92,8 +92,8 @@ describe('Given a CardDetail component', () => {
 
       const deleteBtn = await screen.findByTestId('delete');
       await userEvent.click(deleteBtn);
-      const image = await screen.findByRole('img');
-      expect(image).toBeInTheDocument();
+      const link = screen.getByRole('link');
+      expect(link).toBeInTheDocument();
     });
   });
 
