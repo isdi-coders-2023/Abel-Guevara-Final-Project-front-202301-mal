@@ -56,6 +56,9 @@ export const logSlice = createSlice({
       state.userEmail = '';
       sessionStorage.removeItem('accessToken');
     },
+    restoreStatusRes: state => {
+      state.statusRes = 'idle';
+    },
   },
   extraReducers: builder => {
     builder
@@ -74,7 +77,7 @@ export const logSlice = createSlice({
       })
       .addCase(userLogin.pending, state => {
         state.status = APIStatus.LOADING;
-        state.statusRes = 'idle';
+        //state.statusRes = 'idle';
       })
       .addCase(userLogin.fulfilled, (state, action) => {
         state.status = APIStatus.IDLE;
@@ -94,5 +97,5 @@ export const logSlice = createSlice({
 });
 
 export const selectUserAuth = (state: RootState) => state.authUser;
-export const { restoreuserEmail } = logSlice.actions;
+export const { restoreuserEmail, restoreStatusRes } = logSlice.actions;
 export default logSlice.reducer;

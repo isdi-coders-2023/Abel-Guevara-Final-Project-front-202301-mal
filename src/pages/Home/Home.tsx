@@ -15,12 +15,17 @@ import {
   Loading,
 } from './HomeStyled';
 import { restoreDeleteStatus } from '../../features/Businesses/businesses-slice';
+import {
+  restoreStatusRes,
+  selectUserAuth,
+} from '../../features/User/auth-slice';
 
 const Home = () => {
   const homeState = useAppSelector(selectBusinesses);
   const dispatch = useAppDispatch();
   const businessesState = useAppSelector(selectBusinesses);
   const { businessDel } = useAppSelector(selectBusinesses);
+  const { statusRes } = useAppSelector(selectUserAuth);
   useEffect(() => {
     dispatch(getAllBusinessesAsync());
   }, [dispatch]);
@@ -30,6 +35,12 @@ const Home = () => {
       dispatch(restoreDeleteStatus());
     }
   }, [dispatch, businessDel]);
+
+  useEffect(() => {
+    if (statusRes === 'success') {
+      dispatch(restoreStatusRes());
+    }
+  });
 
   const homeSatus = () => {
     switch (homeState.status) {
