@@ -3,6 +3,7 @@ import { RootState } from '../../app/store';
 import { APIStatus } from '../../shared/states';
 import getAllBusinesses, {
   createBusiness,
+  deleteBusiness,
   getByIdBusiness,
 } from './businesses-api';
 import Business from './businesses-model';
@@ -15,10 +16,13 @@ export interface BusinessesState {
   status: APIStatus;
   businessMsg: string;
   businessInfo: BusinessState;
+  businessDel: BusinessState;
+  businessByIdState: BusinessState;
 }
 
 const INITIAL_STATE: BusinessesState = {
   businesses: [],
+  businessByIdState: 'idle',
   business: {
     _id: '',
     categories: '',
@@ -34,6 +38,7 @@ const INITIAL_STATE: BusinessesState = {
   status: APIStatus.IDLE,
   businessMsg: '',
   businessInfo: 'idle',
+  businessDel: 'idle',
 };
 
 export const getAllBusinessesAsync = createAsyncThunk(
@@ -64,10 +69,22 @@ export const createBusinessAsync = createAsyncThunk(
   },
 );
 
+export const deleteBusinessAsync = createAsyncThunk(
+  `${STATE_NAME}/deleteBusiness`,
+  async (id: string) => {
+    const apiRes = await deleteBusiness(id);
+    return apiRes;
+  },
+);
+
 export const businessesSlice = createSlice({
   name: STATE_NAME,
   initialState: INITIAL_STATE,
-  reducers: {},
+  reducers: {
+    restoreDeleteStatus: state => {
+      state.businessDel = 'idle';
+    },
+  },
 
   extraReducers: builder => {
     builder
@@ -96,17 +113,32 @@ export const businessesSlice = createSlice({
     builder
       .addCase(getByIdBusinessAsync.pending, state => {
         state.status = APIStatus.LOADING;
+        state.businessByIdState = 'idle';
       })
       .addCase(getByIdBusinessAsync.fulfilled, (state, action) => {
         state.status = APIStatus.IDLE;
         state.business = action.payload as Business;
+        state.businessByIdState = 'success';
       })
       .addCase(getByIdBusinessAsync.rejected, (state, action) => {
         state.status = APIStatus.ERROR;
+        state.businessByIdState = 'error';
+      });
+    builder
+      .addCase(deleteBusinessAsync.pending, state => {
+        state.status = APIStatus.LOADING;
+      })
+      .addCase(deleteBusinessAsync.fulfilled, state => {
+        state.status = APIStatus.IDLE;
+        state.businessDel = 'success';
+      })
+      .addCase(deleteBusinessAsync.rejected, (state, action) => {
+        state.status = APIStatus.ERROR;
+        state.businessDel = 'error';
       });
   },
 });
 
 export const selectBusinesses = (state: RootState) => state.business;
-
+export const { restoreDeleteStatus } = businessesSlice.actions;
 export default businessesSlice.reducer;
