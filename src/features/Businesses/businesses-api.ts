@@ -57,3 +57,25 @@ export const createBusiness = async (
   }
   return businessInfo;
 };
+
+export const deleteBusiness = async (
+  id: string,
+): Promise<ApiResponse<Business>> => {
+  const response = await fetch(
+    `https://abel-guevara-final-project-back-202301.onrender.com/api/v1/business/${id}`,
+    {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem('accessToken')}`,
+      },
+    },
+  );
+
+  const businessResponse: ApiResponse<Business> = await response.json();
+
+  if (!response.ok) {
+    throw new Error((businessResponse as ApiError).msg);
+  }
+
+  return businessResponse;
+};
