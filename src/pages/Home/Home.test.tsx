@@ -1,6 +1,6 @@
 import { MemoryRouter } from 'react-router-dom';
 import { server } from '../../mocks/server';
-import { screen, waitFor } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { renderWithProviders } from '../../mocks/test-util';
 import Home from './Home';
 import userEvent from '@testing-library/user-event';

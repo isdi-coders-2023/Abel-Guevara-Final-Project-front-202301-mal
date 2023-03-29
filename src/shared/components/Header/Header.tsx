@@ -4,9 +4,6 @@ import { restoreuserEmail } from '../../../features/User/auth-slice';
 import {
   CloseSession,
   CreateBusiness,
-  FilterBarber,
-  FilterHairdresser,
-  FilterTatto,
   HeaderContainer,
   Logo,
   SessionUser,
