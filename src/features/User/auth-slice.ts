@@ -12,6 +12,7 @@ export interface AuthFormUser {
   status: APIStatus;
   loginMsg: string;
   registerMsg: string;
+  userEmail: string;
 }
 
 const INITIAL_STATE: AuthFormUser = {
@@ -20,6 +21,7 @@ const INITIAL_STATE: AuthFormUser = {
   status: APIStatus.IDLE,
   loginMsg: '',
   registerMsg: '',
+  userEmail: '',
 };
 
 export const userRegister = createAsyncThunk(
@@ -38,14 +40,23 @@ export const userLogin = createAsyncThunk(
     const formData = new FormData(loginForm);
     const user = Object.fromEntries(formData.entries());
     const apiRes = await loginUser(user as UserLog);
-    return apiRes;
+    const userInfo = {
+      apiRes,
+      userEmail: user.email.toString(),
+    };
+    return userInfo;
   },
 );
 
 export const logSlice = createSlice({
   name: 'authUser',
   initialState: INITIAL_STATE,
-  reducers: {},
+  reducers: {
+    restoreuserEmail: state => {
+      state.userEmail = '';
+      sessionStorage.removeItem('accessToken');
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(userRegister.pending, state => {
@@ -68,7 +79,11 @@ export const logSlice = createSlice({
       .addCase(userLogin.fulfilled, (state, action) => {
         state.status = APIStatus.IDLE;
         state.statusRes = 'success';
-        sessionStorage.setItem('accessToken', action.payload.accessToken);
+        state.userEmail = action.payload.userEmail;
+        sessionStorage.setItem(
+          'accessToken',
+          action.payload.apiRes.accessToken,
+        );
       })
       .addCase(userLogin.rejected, (state, action: any) => {
         state.status = APIStatus.ERROR;
@@ -79,5 +94,5 @@ export const logSlice = createSlice({
 });
 
 export const selectUserAuth = (state: RootState) => state.authUser;
-
+export const { restoreuserEmail } = logSlice.actions;
 export default logSlice.reducer;

@@ -10,4 +10,5 @@ export interface AuthResponse {
   msg: string;
   accessToken: string;
 }
+
 export default UserModel;
