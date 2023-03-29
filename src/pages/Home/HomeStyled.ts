@@ -31,6 +31,7 @@ export const FilterContainer = styled.section`
   display: inline-flex;
   gap: 10%;
   justify-content: center;
+  width: 80%;
 `;
 
 export const FilterCategoriesText = styled.button`
