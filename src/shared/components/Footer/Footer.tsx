@@ -11,7 +11,13 @@ const Footer = () => {
   return (
     <FooterContainer>
       <InfoContainer>
-        <HowAre>Quienes Somos</HowAre>
+        <Link
+          to={
+            'https://www.youtube.com/watch?v=yOFv8r7uQ04&ab_channel=AbelGuevaraLanda'
+          }
+        >
+          <HowAre>Quienes Somos</HowAre>
+        </Link>
         <Contact>Contacto</Contact>
       </InfoContainer>
       <SocialRedContainer>
