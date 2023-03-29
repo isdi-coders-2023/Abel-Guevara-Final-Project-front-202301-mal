@@ -11,6 +11,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { store } from '../../../../app/store';
 import { handlers } from '../../../../mocks/handlers';
 import { server } from '../../../../mocks/server';
+import { renderWithProviders } from '../../../../mocks/test-util';
 import FormRegister from './FormRegister';
 
 describe('Given a Register Formulary', () => {
@@ -21,12 +22,10 @@ describe('Given a Register Formulary', () => {
   describe('When the user tries to register and already exists', () => {
     test('You will then receive an error message', async () => {
       server.use(...handlers);
-      render(
-        <Provider store={store}>
-          <MemoryRouter>
-            <FormRegister />
-          </MemoryRouter>
-        </Provider>,
+      renderWithProviders(
+        <MemoryRouter>
+          <FormRegister />
+        </MemoryRouter>,
       );
 
       await act(
@@ -50,12 +49,10 @@ describe('Given a Register Formulary', () => {
   describe('When the user tries register', () => {
     test('Then he should be register', async () => {
       server.use(...handlers);
-      render(
-        <Provider store={store}>
-          <MemoryRouter>
-            <FormRegister />
-          </MemoryRouter>
-        </Provider>,
+      renderWithProviders(
+        <MemoryRouter>
+          <FormRegister />
+        </MemoryRouter>,
       );
       await act(
         async () =>
