@@ -9,7 +9,7 @@ export const HeaderContainer = styled.header`
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   background-image: url('../../../../assets/images/header-movil.webp');
   width: 100%;
-  height: 200px;
+  height: 240px;
   .button,
   .menu {
     position: absolute;
@@ -183,4 +183,6 @@ export const CreateBusiness = styled.button`
   height: 50px;
   width: 40%;
   border: hidden;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px;
+  cursor: pointer;
 `;

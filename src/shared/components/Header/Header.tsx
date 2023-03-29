@@ -50,9 +50,6 @@ const Header = () => {
               Cerrar sesión
             </CloseSession>
           )}
-          <FilterBarber>Barbería</FilterBarber>
-          <FilterHairdresser>Peluquería</FilterHairdresser>
-          <FilterTatto>Tatuajes</FilterTatto>
         </div>
         <Logo>
           <Link to={'/'}>
