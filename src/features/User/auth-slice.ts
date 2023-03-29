@@ -77,7 +77,6 @@ export const logSlice = createSlice({
       })
       .addCase(userLogin.pending, state => {
         state.status = APIStatus.LOADING;
-        //state.statusRes = 'idle';
       })
       .addCase(userLogin.fulfilled, (state, action) => {
         state.status = APIStatus.IDLE;
