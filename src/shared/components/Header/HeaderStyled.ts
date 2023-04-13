@@ -71,6 +71,10 @@ export const HeaderContainer = styled.header`
     opacity: 0;
     z-index: 1;
     padding: 2rem 0;
+    @media (min-width: 1440px) {
+      right: 38px;
+      width: 41%;
+    }
   }
 
   .menu p {
@@ -140,6 +144,14 @@ export const HeaderContainer = styled.header`
     transform: rotate(-45deg);
     transition: 0.5s;
   }
+
+  @media (min-width: 1440px) {
+    height: 450px;
+    background-image: url('../../../../assets/images/header-desktop.webp');
+    background-position: center;
+    justify-content: flex-start;
+    flex-direction: row;
+  }
 `;
 
 export const FilterBarber = styled.p`
@@ -161,12 +173,18 @@ export const SessionUser = styled.p`
   color: var(--color-font-score);
   font-family: var(--main-font-inter-extra-bold);
   font-size: var(--font-size-s);
+  @media (min-width: 1440px) {
+    font-size: var(--font-size-l);
+  }
 `;
 
 export const CloseSession = styled.p`
   color: var(--color-font-score);
   font-family: var(--main-font-inter-extra-bold);
-  font-size: var(--font-size-s);
+  font-size: var(--font-size-l);
+  @media (min-width: 1440px) {
+    font-size: var(--font-size-l);
+  }
 `;
 
 export const Logo = styled.h1`
@@ -174,6 +192,14 @@ export const Logo = styled.h1`
   font-size: 0rem;
   img {
     width: 60%;
+  }
+
+  @media (min-width: 1440px) {
+    text-align: start;
+    margin-bottom: 15%;
+    img {
+      width: 85%;
+    }
   }
 `;
 
@@ -185,4 +211,9 @@ export const CreateBusiness = styled.button`
   border: hidden;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px;
   cursor: pointer;
+  @media (min-width: 1440px) {
+    margin-bottom: -20%;
+    font-size: larger;
+    margin-left: 0%;
+  }
 `;

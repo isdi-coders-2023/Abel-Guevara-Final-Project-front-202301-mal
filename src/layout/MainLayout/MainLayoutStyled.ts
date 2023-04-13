@@ -5,4 +5,7 @@ export const Main = styled.main`
   justify-content: center;
   min-height: 100vh;
   padding-bottom: 30%;
+  @media (min-width: 1440px) {
+    padding-bottom: 5%;
+  }
 `;

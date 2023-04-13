@@ -28,7 +28,7 @@ describe('Header', () => {
       </MemoryRouter>,
     );
 
-    const loginLink = screen.getByText('Inicie sesión');
+    const loginLink = screen.getByTestId('login');
 
     expect(loginLink).toBeInTheDocument();
   });
@@ -40,7 +40,7 @@ describe('Header', () => {
         <Header />
       </MemoryRouter>,
     );
-    const logoutButton = screen.getByText('Cerrar sesión');
+    const logoutButton = screen.getByTestId('logout');
 
     expect(logoutButton).toBeInTheDocument();
   });
@@ -69,7 +69,7 @@ describe('Header', () => {
         <Header />
       </MemoryRouter>,
     );
-    const closeSesionButton = screen.getByText('Cerrar sesión');
+    const closeSesionButton = screen.getByTestId('logout');
 
     await userEvent.click(closeSesionButton);
 
