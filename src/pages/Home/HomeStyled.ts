@@ -32,6 +32,9 @@ export const FilterContainer = styled.section`
   gap: 10%;
   justify-content: center;
   width: 80%;
+  @media (min-width: 1440px) {
+    width: 90%;
+  }
 `;
 
 export const FilterCategoriesText = styled.button`
@@ -45,6 +48,11 @@ export const FilterCategoriesText = styled.button`
   border: inherit;
   height: 35px;
   cursor: pointer;
+  @media (min-width: 1440px) {
+    height: 40px;
+    margin-bottom: 5%;
+    font-size: var(--font-size-m);
+  }
 `;
 
 export const Loading = styled.img`
