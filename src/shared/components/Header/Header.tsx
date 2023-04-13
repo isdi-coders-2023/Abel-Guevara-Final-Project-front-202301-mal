@@ -8,6 +8,8 @@ import {
   Logo,
   SessionUser,
 } from './HeaderStyled';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -35,16 +37,19 @@ const Header = () => {
         <div className="menu">
           {sessionStorage.getItem('accessToken') === null ? (
             <Link to={'/auth/login'}>
-              <SessionUser>Inicie sesión</SessionUser>
+              <SessionUser data-testid={'login'}>
+                <FontAwesomeIcon icon={solid('right-to-bracket')} />
+              </SessionUser>
             </Link>
           ) : (
             <CloseSession
               role="paragraph"
+              data-testid={'logout'}
               onClick={() => {
                 return dispatch(restoreuserEmail());
               }}
             >
-              Cerrar sesión
+              <FontAwesomeIcon icon={solid('arrow-right-from-bracket')} />
             </CloseSession>
           )}
         </div>
@@ -56,6 +61,7 @@ const Header = () => {
             />
           </Link>
         </Logo>
+
         <CreateBusiness onClick={() => authRegisterSalon()}>
           ¿Tienes un salón? Regístralo aquí
         </CreateBusiness>
