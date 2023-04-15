@@ -8,6 +8,8 @@ export const HeaderContainer = styled.header`
   gap: 4%;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   background-image: url('../../../../assets/images/header-movil.webp');
+  background-size: cover;
+  background-position: center;
   width: 100%;
   height: 240px;
   .button,
@@ -71,6 +73,10 @@ export const HeaderContainer = styled.header`
     opacity: 0;
     z-index: 1;
     padding: 2rem 0;
+    @media (min-width: 768px) {
+      right: 40px;
+      width: 35%;
+    }
     @media (min-width: 1440px) {
       right: 38px;
       width: 41%;
@@ -145,12 +151,21 @@ export const HeaderContainer = styled.header`
     transition: 0.5s;
   }
 
+  @media (min-width: 768px) {
+    background-image: url('../../../../assets/images/header-desktop.webp');
+    background-position: center center;
+    background-size: cover;
+    align-items: flex-start;
+    height: 350px;
+  }
   @media (min-width: 1440px) {
     height: 450px;
     background-image: url('../../../../assets/images/header-desktop.webp');
     background-position: center;
-    justify-content: flex-start;
-    flex-direction: row;
+
+    /* flex-direction: row;
+    align-items: baseline;
+    flex-wrap: wrap; */
   }
 `;
 
@@ -193,12 +208,19 @@ export const Logo = styled.h1`
   img {
     width: 60%;
   }
-
-  @media (min-width: 1440px) {
+  @media (min-width: 768px) {
     text-align: start;
     margin-bottom: 15%;
     img {
-      width: 85%;
+      width: 70%;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    align-self: flex-start;
+    margin-bottom: 10%;
+    img {
+      width: 80%;
     }
   }
 `;
@@ -210,10 +232,17 @@ export const CreateBusiness = styled.button`
   width: 40%;
   border: hidden;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px;
+  min-height: 45px;
   cursor: pointer;
+
+  @media (min-width: 768px) {
+    margin-bottom: 5%;
+    align-self: center;
+  }
   @media (min-width: 1440px) {
-    margin-bottom: -20%;
     font-size: larger;
-    margin-left: 0%;
+    /* margin-bottom: -20%;
+
+    margin-left: 0%; */
   }
 `;
