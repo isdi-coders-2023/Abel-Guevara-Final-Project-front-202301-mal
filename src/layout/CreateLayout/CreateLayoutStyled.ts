@@ -16,4 +16,9 @@ export const CreateMain = styled.main`
     color: #433e3e;
     margin-bottom: -6%;
   }
+  @media (min-width: 1440px) {
+    .login-house {
+      font-size: 1.5rem;
+    }
+  }
 `;

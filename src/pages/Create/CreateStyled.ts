@@ -8,6 +8,14 @@ export const CreateSection = styled.section`
 
 export const LogoInked = styled.img`
   width: 35%;
+
+  @media (min-width: 768px) {
+    width: 15%;
+  }
+
+  @media (min-width: 1440px) {
+    width: 17%;
+  }
 `;
 
 export const InfoCreated = styled.p`
