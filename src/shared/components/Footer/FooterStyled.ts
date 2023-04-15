@@ -7,9 +7,11 @@ export const FooterContainer = styled.footer`
   align-items: center;
   background: #433e3e;
   bottom: 0px;
-  position: fixed;
   width: 100%;
   height: 15vh;
+  @media (min-width: 768px) {
+    height: 20vh;
+  }
   @media (min-width: 1440px) {
     height: 25vh;
     position: relative;
