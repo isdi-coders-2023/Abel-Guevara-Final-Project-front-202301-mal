@@ -8,7 +8,7 @@ export const CardContainer = styled.article`
     color: inherit;
   }
   .back-home {
-    height: 5%;
+    height: 10%;
     padding-bottom: 3%;
     color: #433e3e;
   }

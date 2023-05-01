@@ -7,7 +7,7 @@ export const CreateSection = styled.section`
 `;
 
 export const LogoInked = styled.img`
-  width: 35%;
+  width: 15%;
 `;
 
 export const InfoCreated = styled.p`
