@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const HowAreContainer = styled.article`
-  background-color: #f6f6f6;
+  background-color: rgb(246, 246, 246);
   width: 75%;
   min-height: 350px;
   border-radius: 7%;
   padding-left: 8%;
   padding-top: 9%;
+  margin-top: 55%;
 `;
 
 export const DeleteButton = styled.button`
@@ -43,8 +44,7 @@ export const PhoneText = styled.p`
 export const ReviewsContainer = styled.article`
   text-align: start;
   width: 100%;
-  margin-top: 9%;
-  margin-bottom: 10%;
+  margin-top: 5%;
   .star-detail {
     color: goldenrod;
   }

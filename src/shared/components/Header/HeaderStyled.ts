@@ -7,7 +7,9 @@ export const HeaderContainer = styled.header`
   justify-content: center;
   gap: 4%;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  background-image: url('../../../../assets/images/header-movil.webp');
+  background-image: url('../../../../assets/images/header.webp');
+  background-position: center;
+  background-size: cover;
   width: 100%;
   height: 240px;
   .button,
@@ -143,14 +145,6 @@ export const HeaderContainer = styled.header`
     top: 22px;
     transform: rotate(-45deg);
     transition: 0.5s;
-  }
-
-  @media (min-width: 1440px) {
-    height: 450px;
-    background-image: url('../../../../assets/images/header-desktop.webp');
-    background-position: center;
-    justify-content: flex-start;
-    flex-direction: row;
   }
 `;
 
