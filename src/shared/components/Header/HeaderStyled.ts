@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const HeaderContainer = styled.header`
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 4%;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   background-image: url('../../../../assets/images/header.webp');
@@ -66,17 +66,13 @@ export const HeaderContainer = styled.header`
   .menu {
     margin: auto;
     top: 0px;
-    right: 25px;
-    width: 80%;
+    right: 40px;
+    width: 100%;
     height: 100px;
     background: rgba(48, 48, 48, 0.8);
     opacity: 0;
     z-index: 1;
     padding: 2rem 0;
-    @media (min-width: 1440px) {
-      right: 38px;
-      width: 41%;
-    }
   }
 
   .menu p {
@@ -112,7 +108,7 @@ export const HeaderContainer = styled.header`
   #check:checked ~ .fondo {
     background: #101010;
     opacity: 0.6;
-    height: 100vh;
+    //height: 100vh;
     transition: 1s;
   }
 
@@ -182,18 +178,11 @@ export const CloseSession = styled.p`
 `;
 
 export const Logo = styled.h1`
-  text-align: center;
   font-size: 0rem;
+  align-self: self-start;
+  margin-bottom: auto;
   img {
-    width: 60%;
-  }
-
-  @media (min-width: 1440px) {
-    text-align: start;
-    margin-bottom: 15%;
-    img {
-      width: 85%;
-    }
+    width: 50%;
   }
 `;
 
@@ -205,9 +194,5 @@ export const CreateBusiness = styled.button`
   border: hidden;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px;
   cursor: pointer;
-  @media (min-width: 1440px) {
-    margin-bottom: -20%;
-    font-size: larger;
-    margin-left: 0%;
-  }
+  margin-bottom: 2%;
 `;
