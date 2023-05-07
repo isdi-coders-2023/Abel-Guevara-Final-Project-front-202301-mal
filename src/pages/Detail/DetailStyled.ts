@@ -5,5 +5,5 @@ export const DetailContainerPage = styled.section`
   flex-direction: column;
   align-items: center;
   width: 80%;
-  margin-top: 10%;
+  margin-top: 6%;
 `;

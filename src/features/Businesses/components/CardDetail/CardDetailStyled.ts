@@ -4,10 +4,16 @@ export const HowAreContainer = styled.article`
   background-color: rgb(246, 246, 246);
   width: 75%;
   min-height: 350px;
-  border-radius: 7%;
+  border-radius: 4%;
   padding-left: 8%;
   padding-top: 9%;
-  margin-top: 55%;
+  margin-top: 10%;
+  @media (min-width: 768px) {
+    margin-top: 45%;
+  }
+  @media (min-width: 1440px) {
+    margin-top: 65%;
+  }
 `;
 
 export const DeleteButton = styled.button`
